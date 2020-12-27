@@ -38,7 +38,7 @@ public class UserDetail implements Serializable {
     @JoinTable(name = "userdetail_address", joinColumns = @JoinColumn(name = "userDetailId"))
     private List<Address> addresses = new ArrayList<Address>();
 
-    @OneToMany(mappedBy = "userDetail")
+    @OneToMany(mappedBy = "userDetail", cascade = {CascadeType.PERSIST, CascadeType.REMOVE, CascadeType.MERGE})
     //OneToMany default olarak FetchType.LAZY
     private List<Advertisement> advertisements = new ArrayList<Advertisement>();
 

@@ -1,14 +1,11 @@
-package org.example.jpaProje.repository;
+package org.example.jpaProje.service;
 
-import org.example.jpaProje.entityFactory.EntityFactory;
-import org.example.jpaProje.entityFactory.impl.EntityFactoryImpl;
 import org.example.jpaProje.model.User;
 import org.example.jpaProje.model.UserInfo;
 
 import java.util.List;
 
-public interface UserRepository {
-    EntityFactory entityFactory = new EntityFactoryImpl();
+public interface UserService {
     boolean saveUser(User user);
     boolean updateUser(User user);
     boolean removeUser(User user);

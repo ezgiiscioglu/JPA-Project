@@ -1,7 +1,5 @@
 package org.example.jpaProje.repository.impl;
 
-import org.example.jpaProje.entityFactory.EntityFactory;
-import org.example.jpaProje.entityFactory.impl.EntityFactoryImpl;
 import org.example.jpaProje.model.Advertisement;
 import org.example.jpaProje.repository.AdvertisementRepository;
 
@@ -19,12 +17,12 @@ public class AdvertisementRepositoryImpl implements AdvertisementRepository {
             this.transaction.commit();
         }
         catch (RuntimeException e) {
-            System.out.println("Error: "+e);
+            System.err.println("Error: "+e);
             try {
                 this.transaction.rollback();
             }
             catch (RollbackException er) {
-                System.out.println("Error: "+er);
+                System.err.println("Error: "+er);
             }
             return false;
         }
@@ -35,15 +33,16 @@ public class AdvertisementRepositoryImpl implements AdvertisementRepository {
         try {
             this.transaction.begin();
             this.entityManager.merge(advertisement);
+            this.entityManager.flush(); //güncellenmiş şekişde tabloyu alabilmek için
             this.transaction.commit();
         }
         catch (RuntimeException e) {
-            System.out.println("Error: "+e);
+            System.err.println("Error: "+e);
             try {
                 this.transaction.rollback();
             }
             catch (RollbackException er) {
-                System.out.println("Error: "+er);
+                System.err.println("Error: "+er);
             }
             return false;
         }
@@ -61,12 +60,12 @@ public class AdvertisementRepositoryImpl implements AdvertisementRepository {
             }
         }
         catch (RuntimeException e) {
-            System.out.println("Error: "+e);
+            System.err.println("Error: "+e);
             try {
                 this.transaction.rollback();
             }
             catch (RollbackException er) {
-                System.out.println("Error: "+er);
+                System.err.println("Error: "+er);
             }
             return false;
         }
@@ -83,7 +82,7 @@ public class AdvertisementRepositoryImpl implements AdvertisementRepository {
             advertisement = typedQuery.getSingleResult();
         }
         catch (NoResultException e) {
-            System.out.println("Error: "+e);
+            System.err.println("Error: "+e);
         }
         return advertisement;
     }
@@ -97,7 +96,7 @@ public class AdvertisementRepositoryImpl implements AdvertisementRepository {
             advertisements = typedQuery.getResultList();
         }
         catch (NoResultException e) {
-            System.out.println("Error: "+e);
+            System.err.println("Error: "+e);
         }
         return advertisements;
     }
@@ -110,7 +109,7 @@ public class AdvertisementRepositoryImpl implements AdvertisementRepository {
             advertisements = typedQuery.getResultList();
         }
         catch (NoResultException e) {
-            System.out.println("Error: "+e);
+            System.err.println("Error: "+e);
         }
         return advertisements;
     }
@@ -125,7 +124,7 @@ public class AdvertisementRepositoryImpl implements AdvertisementRepository {
             advertisements = typedQuery.getResultList();
         }
         catch (NoResultException e) {
-            System.out.println("Error: "+e);
+            System.err.println("Error: "+e);
         }
         return advertisements;
     }

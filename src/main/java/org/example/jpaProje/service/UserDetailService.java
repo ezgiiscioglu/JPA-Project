@@ -1,11 +1,8 @@
-package org.example.jpaProje.repository;
+package org.example.jpaProje.service;
 
-import org.example.jpaProje.entityFactory.EntityFactory;
-import org.example.jpaProje.entityFactory.impl.EntityFactoryImpl;
 import org.example.jpaProje.model.UserDetail;
 
-public interface UserDetailRepository {
-    EntityFactory entityFactory = new EntityFactoryImpl();
+public interface UserDetailService {
     boolean saveUserDetail(UserDetail userDetail);
     boolean updateUserDetail(UserDetail userDetail);
     boolean removeUserDetail(UserDetail userDetail);

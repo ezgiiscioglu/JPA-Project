@@ -1,13 +1,10 @@
-package org.example.jpaProje.repository;
+package org.example.jpaProje.service;
 
-import org.example.jpaProje.entityFactory.EntityFactory;
-import org.example.jpaProje.entityFactory.impl.EntityFactoryImpl;
 import org.example.jpaProje.model.Advertisement;
 
 import java.util.List;
 
-public interface AdvertisementRepository {
-    EntityFactory entityFactory = new EntityFactoryImpl();
+public interface AdvertisementService {
     boolean saveAdvertisement(Advertisement advertisement);
     boolean updateAdvertisement(Advertisement advertisement);
     boolean removeAdvertisement(Advertisement advertisement);

@@ -1,13 +1,10 @@
-package org.example.jpaProje.repository;
+package org.example.jpaProje.service;
 
 import org.example.jpaProje.model.Education;
-import org.example.jpaProje.entityFactory.EntityFactory;
-import org.example.jpaProje.entityFactory.impl.EntityFactoryImpl;
 
 import java.util.List;
 
-public interface EducationRepository {
-    EntityFactory entityFactory = new EntityFactoryImpl();
+public interface EducationService {
     boolean saveEducation(Education education);
     boolean updateEducation(Education education);
     boolean removeEducation(Education education);
